@@ -31,12 +31,16 @@ public class ServerCall {
 
 
     public static void makeCall(){
-
-        new HttpAsyncTask().execute();
+        try {
+            new HttpAsyncTask().execute().get();
+        }catch(Exception c){
+            Log.v("EXXCEPPTION ","new HttpAsyncTask().execute().get()");
+            c.printStackTrace();;
+        }
     }
 
 
-    public static String getDataFromSrver( ){
+    public static void getDataFromSrver( ){
         InputStream inputStream = null;
         String result = "";
         try {
@@ -44,18 +48,21 @@ public class ServerCall {
             HttpResponse httpResponse = httpclient.execute(new HttpGet(APIConstant.cuurentPath));
             inputStream = httpResponse.getEntity().getContent();
             if(inputStream != null)
-                result = convertInputStreamToString(inputStream);
-            else
-                result = "Did not work!";
+                 convertInputStreamToString(inputStream);
+            else{
+                APIConstant.responseStatus=false;
+//                result = "Did not work!";
+                Log.v("getDataFromSrver faild","NO RESPONSE FROM SERVER");
+            }
 
         } catch (Exception e) {
             Log.d("InputStream", e.getLocalizedMessage());
         }
 
-        return result;
+//        return result;
     }
 
-    private static String convertInputStreamToString(InputStream inputStream) throws IOException{
+    private static void  convertInputStreamToString(InputStream inputStream) throws IOException{
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
         String line = "";
         String result = "";
@@ -63,9 +70,17 @@ public class ServerCall {
             result += line;
 
         inputStream.close();
+
         APIConstant.responseText=result;
-        Log.v("RESSSSSEEEELLLLT",result);
-        return result;
+        try {
+            APIConstant.response = new JSONObject(result);
+            Log.d("SERVER CALL RESULT", APIConstant.response.toString());
+            APIConstant.responseStatus=true;
+
+        } catch (Throwable t) {
+            Log.e("My App", "Could not parse malformed JSON: \"" + result + "\"");
+            APIConstant.responseStatus=false;
+        }
 
     }
 

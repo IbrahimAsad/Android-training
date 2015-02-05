@@ -62,7 +62,10 @@ public class LoginActivity extends Activity  {
 //         String uID=user_id.getText().toString();
 //         String uCode=user_code.getText().toString();
 //        String path= APIConstant.path;
-        ServerCall.makeCall();
+           ServerCall.makeCall();
+           Log.v("after servercall.makecall",APIConstant.response.toString());
+
+
     }
 }
 
