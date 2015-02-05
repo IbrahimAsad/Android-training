@@ -32,13 +32,29 @@ import java.util.List;
 
 public class LoginActivity extends Activity  {
 
+    private EditText user_id;
+    private EditText user_code;
+    private Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        user_code= (EditText) findViewById(R.id.user_id);
+        user_code=(EditText)findViewById(R.id.user_code);
+        login=(Button)findViewById(R.id.login_button);
+        login.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                doServerCall();
+            }
+        });
+    }
 
 
+    private void doServerCall(){
+         String uID=user_id.getText().toString();
+         String uCode=user_code.getText().toString();
     }
 }
 

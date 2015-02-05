@@ -11,7 +11,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/mainLayout">
 
         <LinearLayout
             android:orientation="vertical"
@@ -24,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Sign In "
-                android:id="@+id/"
+                android:id="@+id/sign_in_view"
                 android:layout_gravity="center"
                 android:textSize="30dp"
                 android:textIsSelectable="false" />
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Your ID"
-            android:id="@+id/" />
+            android:id="@+id/user_id_view" />
 
         <EditText
             android:layout_width="match_parent"
@@ -47,7 +48,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Your Code"
-            android:id="@+id/user_code" />
+            android:id="@+id/user_code_view" />
 
         <EditText
             android:layout_width="match_parent"
