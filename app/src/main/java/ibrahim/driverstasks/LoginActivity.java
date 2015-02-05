@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,6 +42,7 @@ public class LoginActivity extends Activity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.v("STARTTTTTTT", "VVVV");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         user_code= (EditText) findViewById(R.id.user_id);
@@ -48,16 +50,17 @@ public class LoginActivity extends Activity  {
         login=(Button)findViewById(R.id.login_button);
         login.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-
+                Log.v("CLICCCKED","VVVV");
                 doServerCall();
+
             }
         });
     }
 
 
     private void doServerCall(){
-         String uID=user_id.getText().toString();
-         String uCode=user_code.getText().toString();
+//         String uID=user_id.getText().toString();
+//         String uCode=user_code.getText().toString();
 //        String path= APIConstant.path;
         ServerCall.makeCall();
     }

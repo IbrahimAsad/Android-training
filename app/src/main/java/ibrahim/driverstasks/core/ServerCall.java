@@ -32,24 +32,17 @@ public class ServerCall {
 
     public static void makeCall(){
 
+        new HttpAsyncTask().execute();
     }
 
 
-    public static String GET(String url){
+    public static String getDataFromSrver( ){
         InputStream inputStream = null;
         String result = "";
         try {
-
-            // create HttpClient
             HttpClient httpclient = new DefaultHttpClient();
-
-            // make GET request to the given URL
-            HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
-
-            // receive response as inputStream
+            HttpResponse httpResponse = httpclient.execute(new HttpGet(APIConstant.cuurentPath));
             inputStream = httpResponse.getEntity().getContent();
-
-            // convert inputstream to string
             if(inputStream != null)
                 result = convertInputStreamToString(inputStream);
             else
@@ -70,6 +63,8 @@ public class ServerCall {
             result += line;
 
         inputStream.close();
+        APIConstant.responseText=result;
+        Log.v("RESSSSSEEEELLLLT",result);
         return result;
 
     }
