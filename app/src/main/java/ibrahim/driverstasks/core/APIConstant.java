@@ -7,7 +7,7 @@ import org.json.JSONObject;
  */
 public class APIConstant{
 
-public static String path="";
+public static String path="http://ibrahimasad.ml/Testing/";
 public static JSONObject response;
 
 }

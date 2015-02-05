@@ -29,6 +29,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import ibrahim.driverstasks.core.APIConstant;
+import ibrahim.driverstasks.core.ServerCall;
+
 
 public class LoginActivity extends Activity  {
 
@@ -55,6 +58,8 @@ public class LoginActivity extends Activity  {
     private void doServerCall(){
          String uID=user_id.getText().toString();
          String uCode=user_code.getText().toString();
+//        String path= APIConstant.path;
+        ServerCall.makeCall();
     }
 }
 
