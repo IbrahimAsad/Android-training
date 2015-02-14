@@ -7,7 +7,8 @@ import org.json.JSONObject;
  */
 public class APIConstant{
 
-public static String path="http://ibrahimasad.ml/DriversTasks/public/driver/login/1?code=1991";
+public static String path="http://ibrahimasad.ml/DriversTasks/public/driver/";
+public static  String loginPath="login/";
     public  static  String path2="http://ibrahimasad.ml/DriversTasks/public/driver/getTasks/";
 public static JSONObject response=new JSONObject();
     public static  boolean responseStatus=true;
@@ -15,6 +16,12 @@ public static JSONObject response=new JSONObject();
 
     public  static  String cuurentPath=APIConstant.path2+"1";
 
+    public static void setServerURL(String method){
+        APIConstant.cuurentPath=APIConstant.path+method;
+    }
+    public  static void setParameters(String param){
+        APIConstant.cuurentPath+=param;
+    }
     public  static  String responseText="";
 
 }

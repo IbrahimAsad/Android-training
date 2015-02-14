@@ -1,3 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">DriversTasks</string>
+    <string name="title_activity_view_tasks">Driver Tasks</string>
+    <string name="Your_Tasks">Hello, Your Tasks</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
