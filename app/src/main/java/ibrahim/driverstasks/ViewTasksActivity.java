@@ -64,7 +64,7 @@ public class ViewTasksActivity extends ListActivity
 //            progressBar.setLayoutParams();
 
             progressBar.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
-                    LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+                    LayoutParams.WRAP_CONTENT));
 
             progressBar.setIndeterminate(true);
             getListView().setEmptyView(progressBar);
